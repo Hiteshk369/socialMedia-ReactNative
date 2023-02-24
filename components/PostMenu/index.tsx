@@ -4,11 +4,12 @@ import Post from '../Post';
 
 const PostMenu = () => {
   return (
-    <ScrollView className="px-4 bg-[#1B1212]">
-      <Post />
-      <Post />
-      <Post />
-      <Post />
+    <ScrollView
+      className="px-4 bg-[#1b1b1b]"
+      showsVerticalScrollIndicator={false}>
+      {Array.from({length: 6}).map((_, i) => {
+        return <Post key={i} />;
+      })}
     </ScrollView>
   );
 };
