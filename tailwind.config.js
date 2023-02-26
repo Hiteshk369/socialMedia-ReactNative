@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   content: [
     './screens/**/*.{js,ts,jsx,tsx}',
@@ -8,7 +9,15 @@ module.exports = {
     './App.tsx',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        mainBg: '#1b1b1b',
+        lightBg: '#28282B',
+      },
+      fontFamily: {
+        poppins: ['./assets/Poppins'],
+      },
+    },
   },
   plugins: [],
 };

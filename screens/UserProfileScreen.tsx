@@ -1,12 +1,17 @@
-import {SafeAreaView, View, Text, Image} from 'react-native';
+import {SafeAreaView, View, Text, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
 import Footer from '../components/Footer';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import Feather from 'react-native-vector-icons/Feather';
 import IonIcons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import {useNavigation} from '@react-navigation/native';
+import {RootStackParamList} from '../App';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
-const UserProfile = () => {
+const UserProfileScreen = () => {
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   return (
     <SafeAreaView className="h-screen bg-[#1b1b1b]">
       <View className="flex items-center mt-3">
@@ -26,43 +31,47 @@ const UserProfile = () => {
         </View>
       </View>
       <View className="flex space-y-2 mt-8 mb-6">
-        <View className="mx-5  py-3 px-6 flex flex-row items-center justify-between bg-[#28282B] rounded-lg">
+        <TouchableOpacity
+          onPress={() => navigation.navigate('Gallery')}
+          className="mx-5  py-3 px-6 flex flex-row items-center justify-between bg-[#28282B] rounded-lg">
           <View className="flex flex-row items-center space-x-3 ">
             <Fontisto name={'photograph'} size={30} />
             <Text className="text-base">Posts</Text>
           </View>
           <Text className="text-base">50</Text>
-        </View>
-        <View className="mx-5 py-3 px-6 flex flex-row items-center justify-between bg-[#28282B] rounded-lg">
+        </TouchableOpacity>
+        <TouchableOpacity className="mx-5 py-3 px-6 flex flex-row items-center justify-between bg-[#28282B] rounded-lg">
           <View className="flex flex-row items-center space-x-3 ">
             <Feather name={'moon'} size={30} />
             <Text className="text-base">Dark Mode</Text>
           </View>
           <Text className="text-base">On</Text>
-        </View>
-        <View className="mx-5 py-3 px-6 flex flex-row items-center justify-between bg-[#28282B] rounded-lg">
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('Saved')}
+          className="mx-5 py-3 px-6 flex flex-row items-center justify-between bg-[#28282B] rounded-lg">
           <View className="flex flex-row items-center space-x-3 ">
             <IonIcons name={'bookmarks-outline'} size={30} />
             <Text className="text-base">Saved</Text>
           </View>
           <Text className="text-base">12</Text>
-        </View>
-        <View className="mx-5 py-3 px-6 flex flex-row items-center justify-between bg-[#28282B] rounded-lg">
+        </TouchableOpacity>
+        <TouchableOpacity className="mx-5 py-3 px-6 flex flex-row items-center justify-between bg-[#28282B] rounded-lg">
           <View className="flex flex-row items-center space-x-3 ">
             <Feather name={'edit'} size={30} />
             <Text className="text-base">Edit Profile</Text>
           </View>
-        </View>
-        <View className="mx-5 py-3 px-6 flex flex-row items-center justify-between bg-[#28282B] rounded-lg">
+        </TouchableOpacity>
+        <TouchableOpacity className="mx-5 py-3 px-6 flex flex-row items-center justify-between bg-[#28282B] rounded-lg">
           <View className="flex flex-row items-center space-x-3 ">
             <MaterialIcons name={'logout'} size={30} />
             <Text className="text-base">Logout</Text>
           </View>
-        </View>
+        </TouchableOpacity>
       </View>
       <Footer />
     </SafeAreaView>
   );
 };
 
-export default UserProfile;
+export default UserProfileScreen;

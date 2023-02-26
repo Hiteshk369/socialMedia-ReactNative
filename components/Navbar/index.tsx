@@ -20,10 +20,10 @@ const Navbar = () => {
         </View>
         <View className="flex flex-row items-center space-x-4">
           <Feather color={'#F5F5DC'} name={'search'} size={25} />
-          <View className="relative">
+          <TouchableOpacity className="relative">
             <Feather color={'#F5F5DC'} name={'bell'} size={25} />
             <View className="absolute w-2 h-2 bg-[#e5ab50] rounded-full right-1" />
-          </View>
+          </TouchableOpacity>
           <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
             <Image
               source={require('../../assets/Hiteshguitar.jpg')}

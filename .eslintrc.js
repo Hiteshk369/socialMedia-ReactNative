@@ -7,7 +7,9 @@ module.exports = {
       'error',
       {
         endOfLine: 'auto',
+        'no-inline-styles': false,
       },
     ],
+    'react-native/no-inline-styles': 0,
   },
 };

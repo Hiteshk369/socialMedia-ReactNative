@@ -19,7 +19,7 @@ const Footer = () => {
             <OctIcons color={'#F5F5DC'} name="home" size={25} />
           </View>
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('CreatePost')}>
           <AntIcons color={'#F5F5DC'} name="pluscircle" size={38} />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate('Chats')}>
