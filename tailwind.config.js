@@ -13,6 +13,8 @@ module.exports = {
       colors: {
         mainBg: '#1b1b1b',
         lightBg: '#28282B',
+        mainlightBg: '#ffffff',
+        sidelightBg: '#e2e8f0',
       },
       fontFamily: {
         poppins: ['./assets/Poppins'],

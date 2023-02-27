@@ -4,24 +4,33 @@ import Feather from 'react-native-vector-icons/Feather';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack/lib/typescript/src/types';
 import {RootStackParamList} from '../../App';
+import {useColorScheme} from 'react-native';
 
 const Navbar = () => {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+  const colorScheme = useColorScheme();
 
   return (
     <View>
-      <View className="w-screen bg-[#1b1b1b] h-20 px-8 flex flex-row justify-between items-center">
+      <View
+        className={`w-screen ${
+          colorScheme === 'dark' ? 'bg-mainBg' : 'bg-mainlightBg'
+        } h-20 px-8 flex flex-row justify-between items-center`}>
         <View>
           <Image
-            source={require('../../assets/Logo.png')}
+            source={
+              colorScheme === 'dark'
+                ? require('../../assets/Logo.png')
+                : require('../../assets/LogoBlack.png')
+            }
             className="w-20 h-5"
           />
         </View>
         <View className="flex flex-row items-center space-x-4">
-          <Feather color={'#F5F5DC'} name={'search'} size={25} />
+          <Feather name={'search'} size={25} />
           <TouchableOpacity className="relative">
-            <Feather color={'#F5F5DC'} name={'bell'} size={25} />
+            <Feather name={'bell'} size={25} />
             <View className="absolute w-2 h-2 bg-[#e5ab50] rounded-full right-1" />
           </TouchableOpacity>
           <TouchableOpacity onPress={() => navigation.navigate('Profile')}>

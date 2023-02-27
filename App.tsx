@@ -9,6 +9,7 @@ import PostSavedScreen from './screens/PostSavedScreen';
 import RegistrationScreen from './screens/RegistrationScreen';
 import SignInScreen from './screens/SignInScreen';
 import CreatePostScreen from './screens/CreatePostScreen';
+import {useColorScheme} from 'react-native';
 
 export type RootStackParamList = {
   Landing: undefined;
@@ -25,9 +26,10 @@ export type RootStackParamList = {
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const App = () => {
+  const colorScheme = useColorScheme();
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="SignIn">
+      <Stack.Navigator initialRouteName="Home">
         <Stack.Screen
           options={{headerShown: false}}
           name="Registration"
@@ -47,8 +49,10 @@ const App = () => {
           name="Chats"
           component={ChatScreen}
           options={{
-            headerStyle: {backgroundColor: '#1b1b1b'},
-            headerTintColor: '#fff',
+            headerStyle: {
+              backgroundColor: colorScheme === 'dark' ? '#1b1b1b' : '#ffffff',
+            },
+            headerTintColor: colorScheme === 'dark' ? '#ffffff' : '#1b1b1b',
           }}
         />
         <Stack.Screen
@@ -60,25 +64,30 @@ const App = () => {
           name="Profile"
           component={UserProfileScreen}
           options={{
-            headerStyle: {backgroundColor: '#1b1b1b'},
-            headerTintColor: '#fff',
+            headerStyle: {
+              backgroundColor: colorScheme === 'dark' ? '#1b1b1b' : '#ffffff',
+            },
+            headerTintColor: colorScheme === 'dark' ? '#ffffff' : '#1b1b1b',
           }}
         />
         <Stack.Screen
           name="Gallery"
           component={PostGalleyScreen}
           options={{
-            headerTitle: 'Posts Gallery',
-            headerStyle: {backgroundColor: '#1b1b1b'},
-            headerTintColor: '#fff',
+            headerStyle: {
+              backgroundColor: colorScheme === 'dark' ? '#1b1b1b' : '#ffffff',
+            },
+            headerTintColor: colorScheme === 'dark' ? '#ffffff' : '#1b1b1b',
           }}
         />
         <Stack.Screen
           name="Saved"
           component={PostSavedScreen}
           options={{
-            headerStyle: {backgroundColor: '#1b1b1b'},
-            headerTintColor: '#fff',
+            headerStyle: {
+              backgroundColor: colorScheme === 'dark' ? '#1b1b1b' : '#ffffff',
+            },
+            headerTintColor: colorScheme === 'dark' ? '#ffffff' : '#1b1b1b',
           }}
         />
       </Stack.Navigator>

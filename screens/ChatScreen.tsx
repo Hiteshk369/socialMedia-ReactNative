@@ -9,15 +9,27 @@ import {
 import Feather from 'react-native-vector-icons/Feather';
 import ChatBox from '../components/ChatBox';
 import Footer from '../components/Footer';
+import {useColorScheme} from 'react-native';
 
 const ChatScreen = () => {
+  const colorScheme = useColorScheme();
   return (
-    <SafeAreaView className="bg-[#1b1b1b] h-screen">
+    <SafeAreaView
+      className={`h-screen ${
+        colorScheme === 'dark' ? 'bg-mainBg' : 'bg-mainlightBg'
+      }`}>
       <View className="mx-5 mt-2 mb-2">
-        <View className="flex flex-row items-center text-slate-300 px-4 bg-lightBg space-x-3 rounded-[50px]">
-          <Feather name="search" color={'#94a3b8'} size={15} />
+        <View
+          className={`flex flex-row items-center  px-4  space-x-3 rounded-[50px] ${
+            colorScheme === 'dark'
+              ? 'bg-lightBg text-slate-300'
+              : ' bg-sidelightBg text-gray-900'
+          }`}>
+          <Feather name="search" size={15} />
           <TextInput
-            className="flex-1 text-slate-400"
+            className={`flex-1 ${
+              colorScheme === 'dark' ? 'text-slate-400' : 'text-gray-700'
+            }`}
             placeholder="Search"
             style={{height: 40}}
           />

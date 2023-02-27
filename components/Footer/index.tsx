@@ -6,29 +6,32 @@ import AntIcons from 'react-native-vector-icons/AntDesign';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack/lib/typescript/src/types';
 import {RootStackParamList} from '../../App';
+import {useColorScheme} from 'react-native';
 
 const Footer = () => {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+  const colorScheme = useColorScheme();
 
   return (
-    <View className="h-20 bg-[#1b1b1b] before:border-t before:border-[#28282B]">
+    <View
+      className={`h-20  before:border-t  ${
+        colorScheme === 'dark'
+          ? 'bg-mainBg before:border-lightBg'
+          : 'bg-mainlightBg before:border-sidelightBg'
+      }`}>
       <View className="py-5 px-6 flex flex-row justify-evenly items-center">
         <TouchableOpacity onPress={() => navigation.navigate('Home')}>
           <View>
-            <OctIcons color={'#F5F5DC'} name="home" size={25} />
+            <OctIcons name="home" size={25} />
           </View>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate('CreatePost')}>
-          <AntIcons color={'#F5F5DC'} name="pluscircle" size={38} />
+          <AntIcons name="pluscircle" size={38} />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate('Chats')}>
           <View>
-            <IonIcons
-              color={'#F5F5DC'}
-              name="chatbubble-ellipses-outline"
-              size={25}
-            />
+            <IonIcons name="chatbubble-ellipses-outline" size={25} />
           </View>
         </TouchableOpacity>
       </View>

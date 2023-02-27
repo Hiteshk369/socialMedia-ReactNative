@@ -7,22 +7,36 @@ import {
 } from 'react-native';
 import React from 'react';
 import Fontisto from 'react-native-vector-icons/Fontisto';
+import {useColorScheme} from 'react-native';
 
 const SignInScreen = () => {
+  const colorScheme = useColorScheme();
+
   return (
-    <SafeAreaView>
-      <View className="h-screen bg-lightBg relative">
+    <SafeAreaView
+      className={`${colorScheme === 'dark' ? 'text-white' : 'text-black'}`}>
+      <View
+        className={`h-screen relative ${
+          colorScheme === 'dark' ? 'bg-lightBg' : 'bg-sidelightBg'
+        }`}>
         <View className="h-[15%] flex flex-row px-6 items-center justify-between">
           <View>
             <Text
-              className="text-sm font-light"
+              className={`text-sm font-light ${
+                colorScheme === 'dark' ? 'text-white' : 'text-black'
+              }`}
               style={{fontFamily: 'Poppins-Light'}}>
               Don't have an account?
             </Text>
           </View>
-          <TouchableOpacity className="bg-slate-300 p-2 rounded-lg">
+          <TouchableOpacity
+            className={`p-2 rounded-lg ${
+              colorScheme === 'dark' ? 'bg-slate-300' : 'bg-lightBg'
+            }`}>
             <Text
-              className="text-sm text-lightBg"
+              className={`text-sm ${
+                colorScheme === 'dark' ? 'text-lightBg' : 'text-sidelightBg'
+              }`}
               style={{fontFamily: 'Poppins-SemiBold'}}>
               Get Started
             </Text>
@@ -33,7 +47,10 @@ const SignInScreen = () => {
             socialMedia
           </Text>
         </View>
-        <View className="absolute bg-mainBg bottom-0 h-[75%] w-full rounded-t-3xl items-center space-y-4">
+        <View
+          className={`absolute ${
+            colorScheme === 'dark' ? 'bg-mainBg' : 'bg-mainlightBg'
+          } bottom-0 h-[75%] w-full rounded-t-3xl items-center space-y-4`}>
           <View className="h-[20%] py-8 space-y-1 items-center">
             <Text className="text-3xl" style={{fontFamily: 'Poppins-Regular'}}>
               Welcome Back
@@ -45,17 +62,26 @@ const SignInScreen = () => {
           <View className="h-[45%] w-full items-center pt-4 space-y-3">
             <TextInput
               placeholder="Email Address"
-              className="bg-lightBg w-[90%] rounded-lg px-2 py-3"
+              className={`${
+                colorScheme === 'dark' ? 'bg-lightBg' : 'bg-sidelightBg'
+              } w-[90%] rounded-lg px-2 py-3`}
               style={{fontFamily: 'Poppins-Regular'}}
             />
             <TextInput
               placeholder="Password"
-              className="bg-lightBg w-[90%] rounded-lg px-2 py-3"
+              className={`${
+                colorScheme === 'dark' ? 'bg-lightBg' : 'bg-sidelightBg'
+              } w-[90%] rounded-lg px-2 py-3`}
               style={{fontFamily: 'Poppins-Regular'}}
             />
-            <TouchableOpacity className="bg-slate-300 w-[90%] items-center px-2 py-4 rounded-lg">
+            <TouchableOpacity
+              className={`${
+                colorScheme === 'dark' ? 'bg-slate-300' : 'bg-lightBg'
+              } w-[90%] items-center px-2 py-4 rounded-lg`}>
               <Text
-                className="text-lightBg text-base"
+                className={`text-base ${
+                  colorScheme === 'dark' ? 'text-lightBg' : 'text-sidelightBg'
+                }`}
                 style={{fontFamily: 'Poppins-SemiBold'}}>
                 Sign in
               </Text>
@@ -76,11 +102,16 @@ const SignInScreen = () => {
             <View className="border-b border-gray-400 w-[25%]" />
           </View>
           <View className="h-full w-full items-center">
-            <TouchableOpacity className="bg-lightBg w-[90%] items-center rounded-lg px-2 py-4">
+            <TouchableOpacity
+              className={` ${
+                colorScheme === 'dark' ? 'bg-lightBg' : 'bg-sidelightBg'
+              } w-[90%] items-center rounded-lg px-2 py-4`}>
               <View className="flex flex-row items-center space-x-6">
                 <Fontisto name={'google'} size={25} />
                 <Text
-                  className="text-base"
+                  className={`text-base  ${
+                    colorScheme === 'dark' ? 'text-sidelightBg' : 'text-lightBg'
+                  }`}
                   style={{fontFamily: 'Poppins-Regular'}}>
                   Sign in with Google
                 </Text>

@@ -7,16 +7,30 @@ import {
 } from 'react-native';
 import React from 'react';
 import Fontisto from 'react-native-vector-icons/Fontisto';
+import {useColorScheme} from 'react-native';
 
 const RegistrationScreen = () => {
+  const colorScheme = useColorScheme();
   return (
-    <SafeAreaView>
-      <View className="bg-mainBg h-screen">
+    <SafeAreaView
+      className={`${colorScheme === 'dark' ? 'text-white' : 'text-black'}`}>
+      <View
+        className={`${
+          colorScheme === 'dark' ? 'bg-mainBg' : ' bg-mainlightBg'
+        } h-screen`}>
         <View className="p-5 pt-6 h-[25%] justify-center">
-          <Text className="text-3xl" style={{fontFamily: 'Poppins-SemiBold'}}>
+          <Text
+            className={`${
+              colorScheme === 'dark' ? 'text-white' : 'text-black'
+            } text-3xl`}
+            style={{fontFamily: 'Poppins-SemiBold'}}>
             Best Social App To
           </Text>
-          <Text className="text-3xl" style={{fontFamily: 'Poppins-SemiBold'}}>
+          <Text
+            className={`${
+              colorScheme === 'dark' ? 'text-white' : 'text-black'
+            } text-3xl`}
+            style={{fontFamily: 'Poppins-SemiBold'}}>
             Make New Friends
           </Text>
         </View>
@@ -28,17 +42,26 @@ const RegistrationScreen = () => {
         <View className="h-[35%] w-full items-center pt-4 space-y-3">
           <TextInput
             placeholder="Email Address"
-            className="bg-lightBg w-[90%] rounded-lg px-2 py-3"
+            className={`${
+              colorScheme === 'dark' ? 'bg-lightBg' : 'bg-sidelightBg'
+            } w-[90%] rounded-lg px-2 py-3`}
             style={{fontFamily: 'Poppins-Regular'}}
           />
           <TextInput
             placeholder="Password"
-            className="bg-lightBg w-[90%] rounded-lg px-2 py-3"
+            className={`${
+              colorScheme === 'dark' ? 'bg-lightBg' : 'bg-sidelightBg'
+            } w-[90%] rounded-lg px-2 py-3`}
             style={{fontFamily: 'Poppins-Regular'}}
           />
-          <TouchableOpacity className="bg-slate-300 w-[90%] items-center px-2 py-4 rounded-lg">
+          <TouchableOpacity
+            className={`${
+              colorScheme === 'dark' ? 'bg-slate-300' : 'bg-lightBg'
+            } w-[90%] items-center px-2 py-4 rounded-lg`}>
             <Text
-              className="text-lightBg text-base"
+              className={`text-base ${
+                colorScheme === 'dark' ? 'text-lightBg' : 'text-sidelightBg'
+              }`}
               style={{fontFamily: 'Poppins-SemiBold'}}>
               Register
             </Text>
@@ -59,11 +82,16 @@ const RegistrationScreen = () => {
           <View className="border-b border-gray-400 w-[25%]" />
         </View>
         <View className="h-full w-full items-center">
-          <TouchableOpacity className="bg-lightBg w-[90%] items-center rounded-lg px-2 py-4">
+          <TouchableOpacity
+            className={` ${
+              colorScheme === 'dark' ? 'bg-lightBg' : 'bg-sidelightBg'
+            } w-[90%] items-center rounded-lg px-2 py-4`}>
             <View className="flex flex-row items-center space-x-6">
               <Fontisto name={'google'} size={25} />
               <Text
-                className="text-base"
+                className={`text-base  ${
+                  colorScheme === 'dark' ? 'text-sidelightBg' : 'text-lightBg'
+                }`}
                 style={{fontFamily: 'Poppins-Regular'}}>
                 Sign in with Google
               </Text>

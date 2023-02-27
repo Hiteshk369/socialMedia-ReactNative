@@ -3,10 +3,18 @@ import {View, Text, Image, TouchableOpacity} from 'react-native';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Feather from 'react-native-vector-icons/Feather';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import {useColorScheme} from 'react-native';
 
 const Post = () => {
+  const colorScheme = useColorScheme();
+
   return (
-    <View className="bg-[#28282B] rounded-lg h-[410px] w-full p-4 my-2 shadow-md">
+    <View
+      className={`${
+        colorScheme === 'dark'
+          ? 'bg-lightBg text-white'
+          : 'bg-sidelightBg text-black'
+      } rounded-lg h-[410px] w-full p-4 my-2 shadow-md`}>
       <View className="flex flex-row after:pb-4 after:border-b after:border-slate-600 items-center justify-between">
         <View className="flex flex-row items-center space-x-4 ">
           <Image
